@@ -1,5 +1,6 @@
 import os
 import shutil
+import time
 from tqdm import tqdm
 
 def split_files(src_root, dest_root, date_prefix, group_size=1000):
@@ -36,13 +37,12 @@ def split_files(src_root, dest_root, date_prefix, group_size=1000):
             shutil.copy2(src_file, dest_file)  # 使用copy2保留文件的元数据
 
 def main():
-    date_prefix = "20250126"  # 可以根据需求更改
+    date_prefix = time.strftime("%Y%m%d")  # 自动生成日期前缀
 
     # 使用日期前缀构建源路径和目标路径
     src_root = fr"D:\datasets\Distributed\{date_prefix}\images"
     dest_root = fr"D:\datasets\Distributed\{date_prefix}\packages"
 
-    
     # 调用函数进行分组并复制文件
     split_files(src_root, dest_root, date_prefix)
 

@@ -69,7 +69,7 @@ def check_and_create_folder(folder_path):
 
 def main():
     src_root = r"D:\datasets\images"  # 图片源目录
-    date_str = "20250126"  # 手动指定日期字符串
+    date_str = time.strftime("%Y%m%d")  # 自动生成当前日期字符串
     dest_root = fr"D:\datasets\Distributed\{date_str}\images"
     output_txt = r"D:\datasets\history.txt"  # 输出txt文件
     num_samples = 1000  # 需要提取的图片数量
